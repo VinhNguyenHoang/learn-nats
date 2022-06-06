@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option go_package="VinhNguyenHoang/learn-grpc/chatserver";
+
+package chatserver;
+
+message SubscribeRequest{
+    int32 UserId = 1;
+}
+
+message ChatResponse{
+    int32 FromUserId = 1;
+    string Message = 2;
+}
+
+message ChatRequest{
+    int32 FromUserId = 1;
+    int32 ToUserId = 2;
+    string Message = 3;
+}
+
+message EmptyResponse{}
+
+service ChatServer {
+    rpc Subscribe (SubscribeRequest) returns (stream ChatResponse){}
+    rpc Send (ChatRequest) returns (EmptyResponse){}
+}

@@ -1,0 +1,7 @@
+go run server/main.go --serverId=1 --serverUrl=localhost:50079 --sub=CHAT.one --subTo=CHAT.two
+
+go run server/main.go --serverId=2 --serverUrl=localhost:50089 --sub=CHAT.two --subTo=CHAT.one
+
+go run client/main.go --serverId=1 --userId=1
+
+go run client/main.go --serverId=2 --userId=2
